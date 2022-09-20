@@ -1,16 +1,14 @@
-package com.example.demo;
+package com.example.demo.entity;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
@@ -23,12 +21,24 @@ public class PriceList {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "price_list_id",
             nullable = false)
-    private Long id;
+    private int id;
 
     @OneToMany
-    @JoinColumn(name = "price_list_id",insertable = false,updatable = false)
+    @JoinColumn(name = "price_list_id",
+            insertable = false,
+            updatable = false)
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Price> priceList;
 
-    public PriceList(){};
+    public PriceList() {
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public List<Price> getPriceList() {
+        return priceList;
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @Entity
-@Table(name="readings")
+@Table(name = "readings")
 public class Reading {
 
     @Id
@@ -28,14 +28,32 @@ public class Reading {
     @Column(name = "date")
     ZonedDateTime date;
 
-    @Column (name = "value")
+    @Column(name = "value")
     BigDecimal value;
 
-    public Reading(){}
+    public Reading() {
+    }
+
     public Reading(String refNumber, String product, ZonedDateTime date, BigDecimal value) {
         this.refNumber = refNumber;
         this.product = product;
         this.date = date;
         this.value = value;
+    }
+
+    public String getRefNumber() {
+        return refNumber;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public ZonedDateTime getDate() {
+        return date;
+    }
+
+    public BigDecimal getValue() {
+        return value;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,5 +40,25 @@ public class Price {
         this.startDate = startDate;
         this.endDate = endDate;
         this.price = price;
+    }
+
+    public int getPriceListId() {
+        return priceListId;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 }

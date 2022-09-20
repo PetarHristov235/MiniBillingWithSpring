@@ -1,6 +1,5 @@
-package com.example.demo;
+package com.example.demo.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,22 +25,45 @@ public class User {
     String name;
 
     @OneToMany(fetch = FetchType.EAGER)
-            @JoinColumn(name = "ref_number",insertable = false,updatable = false)
-    List<Reading>readingList;
+    @JoinColumn(name = "ref_number",
+            insertable = false,
+            updatable = false)
+    List<Reading> readingList;
     @ManyToOne
-            @JoinColumn(name = "price_list_id")
+    @JoinColumn(name = "price_list_id")
 
     PriceList priceList;
 
     @Column(name = "currencies")
     String currency;
 
-    public User(){}
+    public User() {
+    }
 
     public User(String refNumber, String name, PriceList priceList, String currency) {
         this.refNumber = refNumber;
         this.name = name;
-        this.priceList=priceList;
+        this.priceList = priceList;
         this.currency = currency;
+    }
+
+    public String getRefNumber() {
+        return refNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Reading> getReadingList() {
+        return readingList;
+    }
+
+    public PriceList getPriceList() {
+        return priceList;
+    }
+
+    public String getCurrency() {
+        return currency;
     }
 }
