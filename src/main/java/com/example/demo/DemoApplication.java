@@ -45,13 +45,22 @@ public class DemoApplication {
         vatPercentages.add(new VatPercentages(new BigDecimal("40"), new BigDecimal("10")));
 
         InvoiceRepository invoiceRepository = configurableApplicationContextUser.getBean(InvoiceRepository.class);
-        for (User user : userList) {
+
+        userList.forEach(user -> {
             List<Reading> userReadings = user.getReadingList();
             Collection<Measurement> userMeasurements = measurementGenerator.generate(user, userReadings);
             Invoice invoice = invoiceGenerator.generate(user, userMeasurements, dateReportingToLDT,
                     vatPercentages);
             invoiceRepository.saveAndFlush(invoice);
-        }
+        });
+
+        //        for (User user : userList) {
+        //            List<Reading> userReadings = user.getReadingList();
+        //            Collection<Measurement> userMeasurements = measurementGenerator.generate(user, userReadings);
+        //            Invoice invoice = invoiceGenerator.generate(user, userMeasurements, dateReportingToLDT,
+        //                    vatPercentages);
+        //            invoiceRepository.saveAndFlush(invoice);
+        //        }
 
     }
 
