@@ -34,7 +34,7 @@ public class Price {
     BigDecimal price;
 
     public Price(){}
-    public Price(int priceListId, String product, LocalDate startDate, LocalDate endDate, BigDecimal price) {
+    public Price(final int priceListId, final String product, final LocalDate startDate, final LocalDate endDate, final BigDecimal price) {
         this.priceListId = priceListId;
         this.product = product;
         this.startDate = startDate;

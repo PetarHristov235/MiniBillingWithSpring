@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,9 +47,8 @@ public class Invoice implements Serializable {
     public Invoice() {
     }
 
-
-    public Invoice(Integer documentNumber, String consumer, String reference, BigDecimal totalAmount,
-                   BigDecimal totalAmountWithVat, List<InvoiceLine> lines, List<Vat> vat, List<Tax> taxes) {
+    public Invoice(final Integer documentNumber, final String consumer, final String reference, final BigDecimal totalAmount,
+                   final BigDecimal totalAmountWithVat, final List<InvoiceLine> lines, final List<Vat> vat, final List<Tax> taxes) {
 
         this.documentNumber = documentNumber;
         this.consumer = consumer;

@@ -26,10 +26,8 @@ public class Vat {
     private int index;
 
     @ElementCollection
-
     private List<Integer> lines;
     @ElementCollection
-
     private List<Integer> taxes;
     @Column(name = "taxed_amount_percentage")
     private BigDecimal taxedAmountPercentage;
@@ -48,17 +46,19 @@ public class Vat {
 
 
 
-    public Vat(int index, List<Integer> lines, BigDecimal taxedAmountPercentage, String percentage, BigDecimal amount) {
+    public Vat(final int index, final List<Integer> lines, final BigDecimal taxedAmountPercentage,
+               final String percentage, final BigDecimal amount) {
         this.index = index;
         this.lines = lines;
-        this.taxes = new ArrayList<>();
+        taxes = new ArrayList<>();
         this.taxedAmountPercentage = taxedAmountPercentage;
         this.percentage = new BigDecimal(String.valueOf(percentage));
         this.amount = amount;
 
     }
 
-    public Vat(int index, BigDecimal taxedAmountPercentage, String percentage, BigDecimal amount, List<Integer> taxes) {
+    public Vat(final int index, final BigDecimal taxedAmountPercentage, final String percentage,
+               final BigDecimal amount, final List<Integer> taxes) {
         this(index, new ArrayList<>(), taxedAmountPercentage, percentage, amount);
         this.taxes.addAll(taxes);
     }

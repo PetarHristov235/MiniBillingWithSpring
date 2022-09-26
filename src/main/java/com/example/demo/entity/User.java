@@ -40,7 +40,7 @@ public class User {
     public User() {
     }
 
-    public User(String refNumber, String name, PriceList priceList, String currency) {
+    public User(final String refNumber, final String name, final PriceList priceList, final String currency) {
         this.refNumber = refNumber;
         this.name = name;
         this.priceList = priceList;
