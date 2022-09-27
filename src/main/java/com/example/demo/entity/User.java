@@ -34,7 +34,7 @@ public class User {
 
     PriceList priceList;
 
-    @Column(name = "currencies")
+    @Column(name = "currency")
     String currency;
 
     public User() {
