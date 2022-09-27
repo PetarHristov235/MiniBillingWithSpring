@@ -17,7 +17,6 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ref_number")
     private String refNumber;
 

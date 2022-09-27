@@ -7,7 +7,6 @@ import com.example.demo.repository.InvoiceRepository;
 import com.example.demo.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.math.BigDecimal;
@@ -27,7 +26,7 @@ public class DemoApplication {
 
     private static MeasurementGenerator mmGenerator;
     private static CurrencyRate currencyRate;
-   private static InvoiceGenerator invoiceGenerator;
+    private static InvoiceGenerator invoiceGenerator;
 
     public DemoApplication(final MeasurementGenerator mmGenerator, final CurrencyRate currencyRate,
                            final InvoiceGenerator invoiceGenerator) {
@@ -36,20 +35,19 @@ public class DemoApplication {
         DemoApplication.invoiceGenerator = invoiceGenerator;
     }
 
-
     public static void main(final String[] args) {
 
 
         final String dateReportingTo = "21-03";
         final LocalDateTime dateReportingToLDT = convertingBorderTimeIntoLDT(dateReportingTo);
 
-//       SpringApplication.run(DemoApplication.class, args);
+        //       SpringApplication.run(DemoApplication.class, args);
         final ConfigurableApplicationContext configurableAppContextUser = SpringApplication.run(DemoApplication.class,
                 args);
         final UserRepository userRepository = configurableAppContextUser.getBean(UserRepository.class);
         final List<User> userList = userRepository.findAll();
 
-        final MeasurementGenerator measurementGenerator =mmGenerator;
+        final MeasurementGenerator measurementGenerator = mmGenerator;
         final CurrencyConverter currencyConverter = currencyRate;
 
         final List<VatPercentages> vatPercentages = new ArrayList<>();
@@ -73,9 +71,9 @@ public class DemoApplication {
         //                    vatPercentages);
         //            invoiceRepository.saveAndFlush(invoice);
         //        }
-//        for (final String s:apc.getBeanDefinitionNames()) {
-//            System.out.println(s);
-//        }
+        //        for (final String s:apc.getBeanDefinitionNames()) {
+        //            System.out.println(s);
+        //        }
     }
 
 
