@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.helperClasses;
 
 
 import com.example.demo.entity.User;

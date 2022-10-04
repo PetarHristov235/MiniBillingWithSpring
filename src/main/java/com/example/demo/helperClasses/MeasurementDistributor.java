@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.helperClasses;
 
 import java.util.List;
 

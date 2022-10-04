@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.example.demo.helperClasses;
 
 import com.example.demo.entity.Invoice;
 import com.example.demo.entity.Reading;
 import com.example.demo.entity.User;
-import com.example.demo.repository.InvoiceRepository;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.dao.InvoiceRepository;
+import com.example.demo.dao.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -64,16 +64,9 @@ public class DemoApplication {
             invoiceRepository.saveAndFlush(invoice);
         });
 
-        //        for (User user : userList) {
-        //            List<Reading> userReadings = user.getReadingList();
-        //            Collection<Measurement> userMeasurements = measurementGenerator.generate(user, userReadings);
-        //            Invoice invoice = invoiceGenerator.generate(user, userMeasurements, dateReportingToLDT,
-        //                    vatPercentages);
-        //            invoiceRepository.saveAndFlush(invoice);
-        //        }
-        //        for (final String s:apc.getBeanDefinitionNames()) {
-        //            System.out.println(s);
-        //        }
+
+
+
     }
 
 
